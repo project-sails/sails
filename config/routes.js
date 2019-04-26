@@ -25,7 +25,8 @@ module.exports.routes = {
   //round admincp
   'get /admincp/product/list': 'admincp/ProductController.list',
   //'get /admincp/product/list/page/:id': 'admincp/ProductController.list',
-  'get /admincp/product/add/:id': 'admincp/ProductController.add',
+  'get /admincp/product/form': 'admincp/ProductController.form',
+  'post /admincp/product/add': 'admincp/ProductController.add',
   'get /admincp/product/edit/:id': 'admincp/ProductController.edit',
   //round site
   'get /product/allproduct': 'ProductController.allproduct',

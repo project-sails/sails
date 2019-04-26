@@ -11,10 +11,24 @@ module.exports = {
         res.locals.layout = 'admin/main';
         return res.view('admin/product/list', {title: "product/list"})
     },
-    add: function(req, res) {
-        
+    form: function(req, res) {
         res.locals.layout = 'admin/main';
-        return res.view('admin/product/add', {title: "product/add", id: req.param('id')})
+        return res.view('admin/product/form', {title: "product/add"})
+    },
+    add: function(req, res) {
+        //create a user
+        Product.create({title: req.param("title"),  body: req.param("body")}, function(err, createdData) {
+            if(err){
+                return res.badRequest({
+                            error: err
+                        });
+                } else {
+                return res.json({
+                            data : createdData
+                });
+                }
+        });
+        return res.json({ quote: req.param("title")});
     },
     edit: function(req, res) {
         
