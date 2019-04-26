@@ -19,8 +19,18 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
-  'get /product/list': 'ProductsController.list'
+  //'/': { view: 'test' },
+  // round default
+  '/': 'ProductsController.list',
+  //round admincp
+  'get /admincp/product/list': 'admincp/ProductController.list',
+  //'get /admincp/product/list/page/:id': 'admincp/ProductController.list',
+  'get /admincp/product/add/:id': 'admincp/ProductController.add',
+  'get /admincp/product/edit/:id': 'admincp/ProductController.edit',
+  //round site
+  'get /product/allproduct': 'ProductController.allproduct',
+  'get /product/category': 'ProductController.category',
+  'get /product/detail': 'ProductController.detail'
 
 
   /***************************************************************************
